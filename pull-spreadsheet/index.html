@@ -48,10 +48,12 @@ title: Update Spreadsheet
     })
 
     console.log($resource);
+	console.log($oAuthToken);
 
     function showInfo(data, tabletop) {
 
       $products = new Array();
+	  console.log("showInfo : JKJ");
 
       $("#table_info").text("We found the tables " + tabletop.model_names.join(", "));
 
