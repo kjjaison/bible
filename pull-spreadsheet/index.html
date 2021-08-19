@@ -44,13 +44,18 @@ title: Update Spreadsheet
 
     $(document).ready( function() {
       Tabletop.init( { key: publicSpreadsheetUrl,
-                       callback: showInfo,
+                       callback: showInfo1,
                        simpleSheet: true,
                        debug: true } )
     })
 
     console.log($resource);
 	console.log($oAuthToken);
+	
+	function showInfo1(data, tabletop) {
+		alert('Successfully processed!')
+		console.log(data);
+	}
 
     function showInfo(data, tabletop) {
 	   
