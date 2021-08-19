@@ -7,7 +7,7 @@ title: Update Spreadsheet
 <script type="text/javascript" src="https://hack-education-data.github.io/master/js/jquery-latest.min.js"></script>
 <script type="text/javascript" src="https://hack-education-data.github.io/master/js/utility.js"></script>
 <script type="text/javascript" src="https://hack-education-data.github.io/master/js/cookies.js"></script>
-<script type="text/javascript" src="https://hack-education-data.github.io/master/js/tabletop.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tabletop.js/1.5.1/tabletop.min.js"></script>
 <script type="text/javascript" src="https://hack-education-data.github.io/master/js/js-yaml.min.js"></script>
 <script type="text/javascript" src="https://hack-education-data.github.io/master/js/github.js"></script>
 
@@ -39,11 +39,13 @@ title: Update Spreadsheet
 
     // Grab the token from cookie
     $oAuthToken = Cookies.get('token');
+	var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSjorHo132v4mUIeNCG0UPDEOoX_712l8O5NS83iF3Orxe4bLm4kNZFMTw8hip_m4mkTwD_kFAUqf_J/pubhtml';
+	
 
     $(document).ready( function() {
-      Tabletop.init( { key: $key,
+      Tabletop.init( { key: $publicSpreadsheetUrl,
                        callback: showInfo,
-                       wanted: [ $resource ],
+                       simpleSheet: true,
                        debug: true } )
     })
 
@@ -51,8 +53,10 @@ title: Update Spreadsheet
 	console.log($oAuthToken);
 
     function showInfo(data, tabletop) {
-
+	   
       $products = new Array();
+	  alert('Successfully processed!')
+	  console.log(data);
 	  console.log("showInfo : JKJ");
 
       $("#table_info").text("We found the tables " + tabletop.model_names.join(", "));
