@@ -42,12 +42,12 @@ title: Update Spreadsheet
 	var publicSpreadsheetUrl = 'https://docs.google.com/spreadsheets/d/1sbyMINQHPsJctjAtMW0lCfLrcpMqoGMOJj6AN-sNQrc/pubhtml';
 	
 
-    $(document).ready( function() {
+    function init() {
       Tabletop.init( { key: publicSpreadsheetUrl,
                        callback: showInfo1,
                        simpleSheet: true,
                        debug: true } )
-    })
+    }
 
     console.log($resource);
 	console.log($oAuthToken);
